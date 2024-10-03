@@ -17,12 +17,12 @@ jobs:
       - image: cimg/python:3.11
     steps:
       - checkout
-      - run: python Test.py
+      - run: python test.py
   deploy:
     docker:
       - image: cimg/python:3.11
     steps:
-      - run: echo "Ariba practical is done!"
+      - run: echo "Sandeep practical is done!"
 
 workflows:
   build_and_test_deploy:
@@ -33,7 +33,7 @@ workflows:
             - build
       - deploy:
           requires:
-            - Test
+            - test
           filters:
             branches:
               only: main
